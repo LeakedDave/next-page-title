@@ -21,7 +21,8 @@ function isBasePath(path) { path == "/" || path == "/[locale]" }
  * @param {string} [props.siteName=process.env.NEXT_PUBLIC_SITE_NAME] - The site name.
  * @returns {JSX.Element} The PageTitleProvider component.
  */
-export function PageTitleProvider({ children, formatTitle, siteName = process.env.NEXT_PUBLIC_SITE_NAME }) {
+export function PageTitleProvider({ children, formatTitle, siteName }) {
+    siteName = siteName || process.env.NEXT_PUBLIC_SITE_NAME
     const router = useRouter()
     const [pageTitle, setPageTitle] = useState(isBasePath(router.pathname) ? siteName : null)
 
