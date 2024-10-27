@@ -10,7 +10,7 @@ const PageTitleContext = createContext()
  * @param {string} path - The path to check.
  * @returns {boolean} True if the path is a base path, false otherwise.
  */
-function isBasePath(path) { path == "/" || path == "/[locale]" }
+function isBasePath(path) { return path == "/" || path == "/[locale]" }
 
 /**
  * Provides the page title context to its children.
@@ -21,8 +21,7 @@ function isBasePath(path) { path == "/" || path == "/[locale]" }
  * @param {string} [props.siteName=process.env.NEXT_PUBLIC_SITE_NAME] - The site name.
  * @returns {JSX.Element} The PageTitleProvider component.
  */
-export function PageTitleProvider({ children, formatTitle, siteName }) {
-    siteName = siteName || process.env.NEXT_PUBLIC_SITE_NAME
+export function PageTitleProvider({ children, formatTitle, siteName = process.env.NEXT_PUBLIC_SITE_NAME }) {
     const router = useRouter()
     const [pageTitle, setPageTitle] = useState(isBasePath(router.pathname) ? siteName : null)
 
@@ -78,7 +77,7 @@ export function PageTitle({ title }) {
     return (
         <Head>
             <title>
-                {isBasePath(router.pathname) ? siteName : title ? `${title} | ${siteName}` : null}
+                {isBasePath(router.pathname) ? siteName : (title ? `${title} | ${siteName}` : null)}
             </title>
         </Head>
     )
