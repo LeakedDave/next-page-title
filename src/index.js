@@ -1,1 +1,1 @@
-export * from './test-component'
+export * from './page-title-provider'
