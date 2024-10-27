@@ -1,7 +1,7 @@
 {
   "name": "@daveyplate/next-page-title",
   "homepage": "https://github.com/daveyplate/next-page-title",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automatically set the page title in Next.js based on the current route, or override it with a custom title.",
   "module": "dist/index",
   "types": "dist/index",
