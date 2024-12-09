@@ -10,7 +10,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "babel src --out-dir dist && npx tsc",
+    "build": "rm -rf dist && tsc",
+    "dev": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -20,18 +21,18 @@
     "document",
     "page"
   ],
-  "author": "LeakedDave",
+  "author": "daveycodez",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.25.7",
-    "@babel/core": "^7.25.7",
-    "@babel/preset-env": "^7.25.7",
-    "@babel/preset-react": "^7.25.7",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.1",
+    "react": "file:../daveyplate/node_modules/react",
+    "react-dom": "file:../daveyplate/node_modules/react-dom",
     "typescript": "^5.6.2"
   },
   "peerDependencies": {
+    "next": ">=14.0.0",
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0",
-    "next": ">=14.0.0"
+    "react-dom": ">=18.0.0"
   }
 }
